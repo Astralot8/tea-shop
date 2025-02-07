@@ -1,0 +1,69 @@
+<section class="container m-auto pt-2 pb-5" #formContainer>
+    <div class="w-50 m-auto">
+      <h2 class="fw-bold text-center mb-5" id="orderTitle">Сделать заказ</h2>
+      <form class="row g-3" [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+        <div class="col-md-12">
+          <label class="form-label">Товар</label>
+          <input type="text" class="form-control" formControlName="productName">
+          <section *ngIf="productName?.invalid && productName?.touched" class="error text-danger">
+            Поле товар должно содержать минимум 2 символа
+          </section>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label">Комментарий к заказу</label>
+          <input type="text" class="form-control" placeholder="Оставьте комментарий..." formControlName="comment">
+        </div>
+          <div class="col-md-4">
+            <label class="form-label">Имя</label>
+            <input type="text" class="form-control" placeholder="Имя..." formControlName="firstName">
+            <section *ngIf="firstName?.invalid && firstName?.touched" class="error text-danger">
+              Поле имя должно содержать только буквы и быть длинной минимум 2 символа
+            </section>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Фамилия</label>
+            <input type="text" class="form-control" placeholder="Фамилия..."  formControlName="lastName">
+            <section *ngIf="lastName?.invalid && lastName?.touched" class="error text-danger">
+              Поле фамилия должно содержать только буквы и быть длинной минимум 2 символа
+            </section>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Телефон</label>
+              <input type="number" class="form-control" placeholder="+7 (999) 111 22 33"  formControlName="phone">
+              <section *ngIf="phone?.invalid && phone?.touched" class="error text-danger">
+                Поле телефон должно содержать 11 цифр
+              </section>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Страна</label>
+            <input type="text" class="form-control"  formControlName="country">
+            <section *ngIf="country?.invalid && country?.touched" class="error text-danger">
+              Поле страна должно содержать минимум 2 символа
+            </section>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Индекс</label>
+            <input type="number" class="form-control"  formControlName="zipCode">
+            <section *ngIf="zipCode?.invalid && zipCode?.touched" class="error text-danger">
+              Поле индекс должно содержать 6 цифр
+            </section>
+          </div>
+          <div class="col-12">
+              <label class="form-label">Адрес</label>
+              <input type="text" class="form-control"  formControlName="address">
+              <section *ngIf="address?.invalid && address?.touched" class="error text-danger">
+                В поле «Адрес» можно вводить: буквы, цифры, пробелы, дефис и слеш.
+              </section>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary hvr-wobble-horizontal" [disabled]="orderForm.invalid || orderStatus === 'Отправка заказа...'">Оформить заказ</button>
+            <p *ngIf="orderStatus" class="status">{{orderStatus}}</p>
+          </div>
+      </form>
+    </div>
+  </section>
+
+  <div class="container m-auto p-5 m-5 text-center d-none" #successMassage>
+    <h2 class="fw-bold text-center mb-5">Спасибо за заказ!</h2>
+    <button type="button" class="btn btn-lg btn-primary mt-5 w-25 " [routerLink]="'/'">На главную</button>
+  </div>

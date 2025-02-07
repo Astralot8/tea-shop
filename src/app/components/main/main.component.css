@@ -1,0 +1,47 @@
+.accordion {
+    --bs-accordion-border-color: none;
+}
+
+.svg-container {
+    transition: all 1s;
+}
+
+.rotated{
+    transform: rotate(180deg);
+}
+
+
+/* @keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(180deg);
+    }
+} */
+
+.accordion-header-button {
+    position: relative;
+}
+
+.slide-item {
+    padding: 50px;
+    background-image: url(../../../../public/assets/images/imageBanner1.png);
+    background-repeat: no-repeat;
+    background-position: right 10% bottom 40%;
+    z-index: 1;
+}
+
+.slide-title {
+    font-size: 48px;
+}
+
+
+.slide {
+    background: transparent;
+
+
+
+
+}

@@ -1,0 +1,22 @@
+<section class="m-auto pt-4 pb-4 container ">
+  <div class="h1 fw-bold text-center mb-5 ">{{product.title}}</div>
+  <div class="row justify-content-center ">
+    <div class="">
+      <div class="card d-flex flex-row align-items-center">
+        <img src="{{product.image}}" class="w-50 d-block" alt="tea">
+        <div class="card-body">
+          <p class="card-text">{{product.description}}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div>Цена: {{product.price | currency: "RUB" : "руб." : "1.2-2"}}</div>
+            <button routerLink="/order" class="btn btn-primary hvr-wobble-horizontal p-3"
+              [queryParams]="{product: product.title}">Купить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div *ngIf="loading" class="loader-bg">
+    <div class="loader"></div>
+  </div>
+</section>

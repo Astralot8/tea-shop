@@ -1,0 +1,9 @@
+.nav-link.active{
+    font-weight: bold;
+}
+
+.btn-reset{
+    position: fixed;
+    top: -1px;
+    right: 85px;
+}

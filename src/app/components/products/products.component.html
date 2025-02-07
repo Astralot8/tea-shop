@@ -1,0 +1,22 @@
+<section class="m-auto pt-4 pb-4 container">
+    <div class="h1 fw-bold text-center mb-5 wow animate__backInRight">{{productsTitle}}</div>
+    <div class="row justify-content-center wow animate__backInLeft">
+        <div class="col-12 col-lg-4 col-md-6 pb-3 pt-3" *ngFor="let product of productsArray">
+            <div class="card">
+                <img src="{{product.image}}" class="card-img-top" alt="tea" href="">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">{{product.title}}</h5>
+                  <p class="card-text">{{product.description | slice: 0 : 250}}...</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>Цена: {{product.price | currency: "RUB" : "руб." : "1.2-2"}}</div>
+                    <a routerLink="/product" [queryParams]="{id: product.id}" class="btn btn-primary hvr-wobble-horizontal">Подробнее</a>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+    </div>
+    <div *ngIf="loading" class="loader-bg">
+      <div class="loader"></div>
+  </div>
+</section>
