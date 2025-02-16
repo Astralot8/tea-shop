@@ -1,9 +1,15 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 .accordion {
     --bs-accordion-border-color: none;
 }
 
 .svg-container {
-    transition: all 1s;
+    transition: all .5s;
 }
 
 .rotated{
@@ -11,7 +17,8 @@
 }
 
 
-/* @keyframes rotate {
+
+@keyframes rotate {
     from {
         transform: rotate(0deg);
     }
@@ -19,7 +26,7 @@
     to {
         transform: rotate(180deg);
     }
-} */
+}
 
 .accordion-header-button {
     position: relative;
@@ -37,11 +44,6 @@
     font-size: 48px;
 }
 
-
 .slide {
     background: transparent;
-
-
-
-
 }

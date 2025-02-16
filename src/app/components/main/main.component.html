@@ -1,179 +1,69 @@
-<div class="position-relative h-100">
-  <section class="slide-item w-75 mx-auto my-5 container">
 
-    <div class="slide d-flex align-items-center">
-      <div class="row mx-1 mx-lg-5 px-1 px-lg-5">
-        <div class="slide-title col-12 col-md-6 fw-bold mb-1 mb-sm-5">Закажи три пачки чая и получи подарок</div>
-        <div class="col-9">
-          <button class="px-2 px-lg-5 btn btn-primary hvr-wobble-horizontal" routerLink="/products">Заказать</button>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="container m-auto pt-5 pb-5 wow animate__fadeIn">
-    <div class="w-75 m-auto">
-      <h2 class="fw-bold  mb-5 text-center">Ответы на часто задаваемые вопросы</h2>
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item mb-1">
-          <h2 class="accordion-header" id="headingOne" (click)="rotateArrow(headingOne, accordionTextOne)">
-            <button class="btn btn-primary w-100 p-3 text-start collapsed d-flex justify-content-between" type="button"
-              data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-              Собираете ли вы подарочные боксы?
-              <div #headingOne class="svg-container">
-                <svg fill="#ffffff" height="20px" width="20px" version="1.1" id="Layer_1"
-                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
-                  xml:space="preserve">
-                  <g>
-                    <g>
-                      <path
-                        d="M505.752,358.248L271.085,123.582c-8.331-8.331-21.839-8.331-30.17,0L6.248,358.248c-8.331,8.331-8.331,21.839,0,30.17
-			s21.839,8.331,30.17,0L256,168.837l219.582,219.582c8.331,8.331,21.839,8.331,30.17,0S514.083,366.58,505.752,358.248z" />
-                    </g>
-                  </g>
-                </svg>
-              </div>
-            </button>
-          </h2>
-          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample"
-            #accordionTextOne>
-            <div class="accordion-body">
-              Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item mb-1">
-          <h2 class="accordion-header" id="headingTwo" (click)="rotateArrow(headingTwo, accordionTextTwo)">
-            <button class="btn btn-primary w-100 p-3 text-start collapsed d-flex justify-content-between" type="button"
-              data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Сколько у вас разновидностей чая?
-              <div #headingTwo class="svg-container">
-                <svg fill="#ffffff" height="20px" width="20px" version="1.1" id="Layer_1"
-                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
-                  xml:space="preserve">
-                  <g>
-                    <g>
-                      <path
-                        d="M505.752,358.248L271.085,123.582c-8.331-8.331-21.839-8.331-30.17,0L6.248,358.248c-8.331,8.331-8.331,21.839,0,30.17
-			s21.839,8.331,30.17,0L256,168.837l219.582,219.582c8.331,8.331,21.839,8.331,30.17,0S514.083,366.58,505.752,358.248z" />
-                    </g>
-                  </g>
-                </svg>
-              </div>
-            </button>
-          </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-            data-bs-parent="#accordionExample" #accordionTextTwo>
-            <div class="accordion-body">
-              У нас большой выбор разных сортов чая, также мы может собрать и привезти на заказ, или собрать
-              индивидуальную чайную композицию на основе Ваших предпочтений.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item mb-1">
-          <h2 class="accordion-header" id="headingThree" (click)="rotateArrow(headingThree, accordionTextThree)">
-            <button class="btn btn-primary w-100 p-3 text-start collapsed d-flex justify-content-between" type="button"
-              data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
-              aria-controls="collapseThree">
-              В какой срок осуществляется доставка?
-              <div #headingThree class="svg-container">
-                <svg fill="#ffffff" height="20px" width="20px" version="1.1" id="Layer_1"
-                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
-                  xml:space="preserve">
-                  <g>
-                    <g>
-                      <path
-                        d="M505.752,358.248L271.085,123.582c-8.331-8.331-21.839-8.331-30.17,0L6.248,358.248c-8.331,8.331-8.331,21.839,0,30.17
-			s21.839,8.331,30.17,0L256,168.837l219.582,219.582c8.331,8.331,21.839,8.331,30.17,0S514.083,366.58,505.752,358.248z" />
-                    </g>
-                  </g>
-                </svg>
-              </div>
-            </button>
-          </h2>
-          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-            data-bs-parent="#accordionExample" #accordionTextThree>
-            <div class="accordion-body">
-              Срок доставки зависит от выбранного адреса, в городах присуствия которые указаны на вкладке Контакты
-              доставка осуществляется в течении двух часов при наличии выбранного Вами чая.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item  mb-1">
-          <h2 class="accordion-header btn-primary" id="headingFour"
-            (click)="rotateArrow(headingFour, accordionTextFour)">
-            <button class="btn btn-primary w-100 p-3 text-start collapsed d-flex justify-content-between" type="button"
-              data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true"
-              aria-controls="collapseFour">
-              У вас обновляется ассортимент?
-              <div #headingFour class="svg-container">
-                <svg fill="#ffffff" height="20px" width="20px" version="1.1" id="Layer_1"
-                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
-                  xml:space="preserve">
-                  <g>
-                    <g>
-                      <path
-                        d="M505.752,358.248L271.085,123.582c-8.331-8.331-21.839-8.331-30.17,0L6.248,358.248c-8.331,8.331-8.331,21.839,0,30.17
-			s21.839,8.331,30.17,0L256,168.837l219.582,219.582c8.331,8.331,21.839,8.331,30.17,0S514.083,366.58,505.752,358.248z" />
-                    </g>
-                  </g>
-                </svg>
-              </div>
-            </button>
-          </h2>
-          <div id="collapseFour" class=" collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample"
-            #accordionTextFour>
-            <div class="accordion-body">
-              Да, наши специяалисты всегда в поисках новых интересных сортов и композиций.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item mb-1">
-          <h2 class="accordion-header" id="headingFive" (click)="rotateArrow(headingFive, accordionTextFive)">
-            <button class="btn btn-primary w-100 p-3 collapsed d-flex justify-content-between accordion-header-button"
-              type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
-              aria-controls="collapseFive">
-              Какого объема у вас пачки чая?
-              <div class="svg-container" #headingFive>
-                <svg fill="#ffffff" height="20px" width="20px" version="1.1" id="Layer_1"
-                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
-                  xml:space="preserve">
-                  <g>
-                    <g>
-                      <path
-                        d="M505.752,358.248L271.085,123.582c-8.331-8.331-21.839-8.331-30.17,0L6.248,358.248c-8.331,8.331-8.331,21.839,0,30.17
-			s21.839,8.331,30.17,0L256,168.837l219.582,219.582c8.331,8.331,21.839,8.331,30.17,0S514.083,366.58,505.752,358.248z" />
-                    </g>
-                  </g>
-                </svg>
-              </div>
-            </button>
-          </h2>
-          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample"
-            #accordionTextFive>
-            <div class="accordion-body">
-              Обьем одной пачки от 100 гр.
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
+  <div class="position-relative wrapper">
+    <section class="slide-item w-75 mx-auto my-5">
   
-</div>
-
-
+      <div class="slide d-flex align-items-center">
+        <div class="row mx-1 mx-lg-5 px-1 px-lg-5">
+          <div class="slide-title col-12 col-md-6 fw-bold mb-1 mb-sm-5">Закажи три пачки чая и получи подарок</div>
+          <div class="col-9">
+            <button class="px-2 px-lg-5 btn btn-primary hvr-wobble-horizontal" routerLink="/products">Заказать</button>
+          </div>
+        </div>
+  
+      </div>
+  
+    </section>
+  
+    <section class="container m-auto pt-5 pb-5 wow animate__fadeIn">
+      <div class="w-75 m-auto">
+        <h2 class="fw-bold  mb-5 text-center">Ответы на часто задаваемые вопросы</h2>
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item mb-1" *ngFor="let item of accordionArray; let i = index">
+            <h2 class="accordion-header" id="headingOne" (click)="rotateArrow(i)">
+              <button class="btn btn-primary w-100 p-3 text-start collapsed d-flex justify-content-between" type="button"
+                data-bs-toggle="collapse">
+                {{item.title}}
+                <div class="svg-container" [class.rotated]="isRotate[i]">
+                  <svg fill="#ffffff" height="20px" width="20px" version="1.1" id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
+                    xml:space="preserve">
+                    <g>
+                      <g>
+                        <path
+                          d="M505.752,358.248L271.085,123.582c-8.331-8.331-21.839-8.331-30.17,0L6.248,358.248c-8.331,8.331-8.331,21.839,0,30.17
+        s21.839,8.331,30.17,0L256,168.837l219.582,219.582c8.331,8.331,21.839,8.331,30.17,0S514.083,366.58,505.752,358.248z" />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </button>
+            </h2>
+            <div class="collapse" [class.show]='isRotate[i]'>
+              <div class="accordion-body">
+                {{item.text}}
+              </div>
+            </div>
+          </div>
+  
+  
+  
+  
+        </div>
+  
+      </div>
+  
+    </section>
+  
+  
+  </div>
+  
+  
   <div class="modal show modal-sheet position-fixed bg-body-transparent p-4 py-md-5 d-block" *ngIf="isShowPopUp">
     <div class="modal-dialog">
       <div class="modal-content rounded-4 shadow">
         <button type="button" class="btn-close ms-auto mt-3 me-3" (click)="closePopUp()"></button>
         <div class="modal-body p-3 text-center">
-          
+  
           <h2 class="fw-bold mb-0 text-center">Посмотрите наши чайные коллекции</h2>
           <div class="my-5 text-center">
             <img src="assets/images/imageBanner2.png" alt="imageBanner2" class="w-75 ">
@@ -183,3 +73,4 @@
       </div>
     </div>
   </div>
+

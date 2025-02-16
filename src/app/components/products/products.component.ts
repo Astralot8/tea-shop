@@ -47,12 +47,28 @@ export class ProductsComponent implements OnInit {
         },
       });
     this.searchService.searchSubject.subscribe((search: string) => {
-        if(search === ''){
-          this.productsTitle = 'Наши чайные коллекции';
-        } else {
-          this.productsTitle = 'Результаты поиска по запросу: ' + search;
-        }
-        
+      if (search === '') {
+        this.loading = true;
+        this.productsTitle = 'Наши чайные коллекции';
+        this.productsService
+          .getProducts()
+          .pipe(
+            tap(() => {
+              this.loading = false;
+            })
+          )
+          .subscribe({
+            next: (data) => {
+              this.productsArray = data;
+            },
+            error: (error) => {
+              console.log(error);
+              this.router.navigate(['/']);
+            },
+          });
+      } else {
+        this.loading = true;
+        this.productsTitle = 'Результаты поиска по запросу: ' + search;
         this.productsService
           .getProductsWithSearch(search)
           .pipe(
@@ -62,18 +78,19 @@ export class ProductsComponent implements OnInit {
           )
           .subscribe({
             next: (data) => {
-              console.log(data)
               this.productsArray = data;
             },
             error: (error) => {
-
               console.log(error);
               this.router.navigate(['/']);
             },
           });
-      
+        this.productsArray.forEach((item) => {
+          if (!item.title.toLowerCase().includes(search.toLowerCase())) {
+            this.productsTitle = 'Ничего не найдено!';
+          } 
+        });
+      }
     });
   }
-
-  
 }

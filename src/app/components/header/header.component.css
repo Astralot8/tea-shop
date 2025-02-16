@@ -3,7 +3,7 @@
 }
 
 .btn-reset{
-    position: fixed;
-    top: -1px;
+    position: absolute;
+    top: 1px;
     right: 85px;
 }

@@ -16,7 +16,7 @@
             </ul>
             <form class="d-flex" role="search">
               <input class="form-control me-2" placeholder="Поиск чая" [(ngModel)]="searchValue" name="searchValue">
-              <button type="button" class="btn-reset btn-close ms-auto mt-3 me-3" (click)="resetSearch()"></button>
+              <button type="button" class="btn-reset btn-close mt-3 me-3" (click)="resetSearch()" *ngIf="searchValue"></button>
               <button class="btn btn-outline-primary hvr-shrink" (click)="searchProducts()">Найти</button>
             </form>
           </div>

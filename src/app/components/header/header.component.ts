@@ -9,10 +9,11 @@ import {
   RouterLinkActive,
 } from '@angular/router';
 import { SearchService } from '../../services/search.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive, FormsModule],
+  imports: [RouterLink, RouterLinkActive, FormsModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
@@ -36,7 +37,6 @@ export class HeaderComponent implements OnInit {
   resetSearch() {
     this.searchValue = ''
     this.searchService.searchSubject.next(this.searchValue);
-    this.router.navigate(['/products']);
   }
 }
 

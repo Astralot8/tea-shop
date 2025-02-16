@@ -1,4 +1,6 @@
-<section class="container m-auto pt-2 pb-5" #formContainer>
+
+<div class="wrapper">
+  <section class="container m-auto pt-2 pb-5" #formContainer>
     <div class="w-50 m-auto">
       <h2 class="fw-bold text-center mb-5" id="orderTitle">Сделать заказ</h2>
       <form class="row g-3" [formGroup]="orderForm" (ngSubmit)="submitOrder()">
@@ -67,3 +69,5 @@
     <h2 class="fw-bold text-center mb-5">Спасибо за заказ!</h2>
     <button type="button" class="btn btn-lg btn-primary mt-5 w-25 " [routerLink]="'/'">На главную</button>
   </div>
+</div>
+
