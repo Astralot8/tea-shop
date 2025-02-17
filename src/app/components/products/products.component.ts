@@ -29,6 +29,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
+
     this.productsTitle = 'Наши чайные коллекции';
     this.productsService
       .getProducts()
@@ -66,9 +67,17 @@ export class ProductsComponent implements OnInit {
               this.router.navigate(['/']);
             },
           });
-      } else {
+        
+      } else if (search !== '') {
         this.loading = true;
-        this.productsTitle = 'Результаты поиска по запросу: ' + search;
+        let tempArray = this.productsArray.find(item => {return item.title.toLowerCase().includes(search.toLowerCase())});
+        if(tempArray?.title.toLowerCase().includes(search.toLowerCase())){
+          this.productsTitle = 'Результаты поиска по запросу: ' + search;
+        } else {
+          this.productsTitle =
+              'По запросу: ' + search + '. Ничего не найдено!';
+        }
+        
         this.productsService
           .getProductsWithSearch(search)
           .pipe(
@@ -85,11 +94,8 @@ export class ProductsComponent implements OnInit {
               this.router.navigate(['/']);
             },
           });
-        this.productsArray.forEach((item) => {
-          if (!item.title.toLowerCase().includes(search.toLowerCase())) {
-            this.productsTitle = 'Ничего не найдено!';
-          } 
-        });
+
+       
       }
     });
   }
