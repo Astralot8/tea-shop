@@ -1,21 +1,11 @@
 import { CommonModule } from '@angular/common';
 import {
-  AfterViewInit,
   Component,
-  ContentChild,
-  ContentChildren,
-  ElementRef,
-  EventEmitter,
-  Input,
   OnDestroy,
   OnInit,
-  Output,
-  QueryList,
-  ViewChild,
-  ViewChildren,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { map, merge, Observable, of, Subscriber, Subscription } from 'rxjs';
+import { Observable, Subscriber, Subscription } from 'rxjs';
 import { AccordionItem } from '../../types/accordion.type';
 
 @Component({
@@ -33,22 +23,27 @@ export class MainComponent implements OnInit, OnDestroy {
     {
       title: 'Собираете ли вы подарочные боксы?',
       text: 'Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!',
+      isActive: false
     },
     {
       title: 'Сколько у вас разновидностей чая?',
       text: 'У нас большой выбор разных сортов чая, также мы может собрать и привезти на заказ, или собрать индивидуальную чайную композицию на основе Ваших предпочтений.',
+      isActive: false
     },
     {
       title: 'В какой срок осуществляется доставка?',
       text: 'Срок доставки зависит от выбранного адреса, в городах присуствия которые указаны на вкладке Контакты доставка осуществляется в течении двух часов при наличии выбранного Вами чая.',
+      isActive: false
     },
     {
       title: 'У вас обновляется ассортимент?',
       text: 'Да, наши специяалисты всегда в поисках новых интересных сортов и композиций.',
+      isActive: false
     },
     {
       title: 'Какого объема у вас пачки чая?',
       text: 'Обьем одной пачки от 100 гр.',
+      isActive: false
     },
   ]
 
@@ -57,12 +52,9 @@ export class MainComponent implements OnInit, OnDestroy {
     text: '',
   };
 
-  isRotate: boolean[] = [];
-
   private subscription: Subscription | null = null;
 
   constructor() {
-    this.accordionArray.forEach(()=> this.isRotate.push(false));
     this.popUp = new Observable((observer: Subscriber<boolean>) => {
       const timeOut = setTimeout(() => {
         observer.next(true);
@@ -79,6 +71,8 @@ export class MainComponent implements OnInit, OnDestroy {
     this.subscription = this.popUp.subscribe((param) => {
       this.isShowPopUp = param;
     });
+
+
   }
 
   ngOnDestroy(): void {
@@ -90,6 +84,12 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   rotateArrow(index: number): void {
-    this.isRotate[index] = !this.isRotate[index];
+    this.accordionArray.forEach((item, i)=>{
+      if(i === index) {
+        item.isActive = !item.isActive
+      } else{
+        item.isActive = false
+      }
+    })
   }
 }

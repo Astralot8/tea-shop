@@ -2,16 +2,16 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import {
+  ActivatedRoute,
   Router,
   RouterLink,
   RouterLinkActive,
 } from '@angular/router';
 import { SearchService } from '../../services/search.service';
-import { CommonModule, TitleCasePipe } from '@angular/common';
-import { param } from 'jquery';
-
+import { CommonModule } from '@angular/common';
+import { Subject } from 'rxjs';
 @Component({
   selector: 'app-header',
   imports: [RouterLink, RouterLinkActive, FormsModule, CommonModule],
@@ -20,24 +20,31 @@ import { param } from 'jquery';
 })
 export class HeaderComponent implements OnInit {
   public searchValue: string = '';
-
+  
+  public searchSubject: Subject<string> = new Subject<string>();
   constructor(
     private router: Router,
+    private activateRoute: ActivatedRoute,
     public searchService: SearchService
-  ) {}
+  ) {
+
+    this.searchSubject.subscribe(query => {
+      this.searchService.setSearchQuery(query); // передача запроса в сервис
+    })
+  }
 
   ngOnInit(): void {
     
   }
 
   searchProducts() {
-    this.searchService.searchSubject.next(titleCaseWord(this.searchValue));
-    this.router.navigate(['/products']);
+    this.searchSubject.next(titleCaseWord(this.searchValue));
+    this.router.navigate(['/products'])
   }
 
   resetSearch() {
     this.searchValue = '';
-    this.searchService.searchSubject.next(this.searchValue);
+    this.searchSubject.next(this.searchValue);
   }
 }
 

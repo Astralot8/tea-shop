@@ -8,22 +8,26 @@ import { OrderType } from '../types/order.type';
   providedIn: 'root',
 })
 export class ProductsService {
-  [x: string]: any;
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<ProductType[]> {
-    return this.http.get<ProductType[]>('https://testologia.ru/tea');
-  }
+  // getProducts(): Observable<ProductType[]> {
+  //   return this.http.get<ProductType[]>('https://testologia.ru/tea');
+  // }
+
+  // getProductsWithSearch(param: string){
+  //   return this.http.get<ProductType[]>(`https://testologia.ru/tea?search=${param}`);
+  // }
 
   getProduct(id: number): Observable<ProductType> {
     return this.http.get<ProductType>(`https://testologia.ru/tea?id=${id}`);
   }
 
-  getProductsWithSearch(param: string){
-    return this.http.get<ProductType[]>(`https://testologia.ru/tea?search=${param}`);
-  }
-
   createOrder(data: OrderType){
     return this.http.post<{success: number, message?: string}>(`https://testologia.ru/order-tea`, data);
   }
+
+  getProducts(queryParams: string = ''): Observable<ProductType[]>{
+    return this.http.get<ProductType[]>('https://testologia.ru/tea' + (queryParams ? ('?search=' + queryParams) : '') );
+  }
+
 }

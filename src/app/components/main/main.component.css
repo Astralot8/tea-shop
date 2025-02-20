@@ -35,8 +35,7 @@
 .slide-item {
     padding: 50px;
     background-image: url(../../../../public/assets/images/imageBanner1.png);
-    background-repeat: no-repeat;
-    background-position: right 10% bottom 40%;
+    background-size: 100%;
     z-index: 1;
 }
 

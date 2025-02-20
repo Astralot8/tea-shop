@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   FormGroup,
   ReactiveFormsModule,
   FormBuilder,
   Validators,
-  FormControl,
 } from '@angular/forms';
 import { ActivatedRoute, Params, RouterLink } from '@angular/router';
-import { Subscription, tap } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { ProductsService } from '../../services/products.service';
 import { OrderType } from '../../types/order.type';
 

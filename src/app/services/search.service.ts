@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,13 @@ export class SearchService {
 
   constructor(private router: Router) { }
 
-  public searchSubject: Subject<string> = new Subject<string>();
+  private searchQuerySubject = new BehaviorSubject<string>('');
+
+  searchValue$ = this.searchQuerySubject.asObservable();
+  setSearchQuery(query: string): void{
+    this.searchQuerySubject.next(query) // обновление состояния поиска
+
+  }
   
   resetSearch() {
     location.reload();
